@@ -61,7 +61,6 @@ public class ReverseLinkedListTwo {
         ListNode prevNode = null;
         ListNode currNode = head;
 
-
         while (left > 1) {
             prevNode = currNode;
             currNode = currNode.next;
