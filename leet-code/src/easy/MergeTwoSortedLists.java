@@ -86,6 +86,8 @@ public class MergeTwoSortedLists {
 //        return answer;
 //    }
 
+    //Runtime 0ms Beats 100.00%of users with Java
+    //Memory 41.16MB Beats 75.78%of users with Java
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode res = new ListNode();
         ListNode current = res;
