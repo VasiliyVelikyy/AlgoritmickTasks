@@ -3,10 +3,7 @@ package medium;
 import java.util.Arrays;
 
 //162. Find Peak Element
-/*162. Find Peak Element
-Medium
-10.6K
-4.5K
+/*
 Companies
 A peak element is an element that is strictly greater than its neighbors.
 
