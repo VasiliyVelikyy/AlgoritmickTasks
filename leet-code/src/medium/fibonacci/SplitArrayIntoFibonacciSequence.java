@@ -1,4 +1,4 @@
-package medium;
+package medium.fibonacci;
 
 import java.util.ArrayList;
 import java.util.List;
