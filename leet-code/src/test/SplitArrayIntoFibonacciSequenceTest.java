@@ -1,6 +1,6 @@
 package test;
 
-import medium.SplitArrayIntoFibonacciSequence;
+import medium.fibonacci.SplitArrayIntoFibonacciSequence;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
