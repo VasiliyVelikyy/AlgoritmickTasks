@@ -1,8 +1,10 @@
 package medium;
 
+import domain.Node;
+
 import java.util.HashMap;
 
-
+//138. Copy List with Random Pointer
 /*A linked list of length n is given such that each node contains an additional random pointer,
  which could point to any node in the list, or null.
 
@@ -48,63 +50,7 @@ Constraints:
 -104 <= Node.val <= 104
 Node.random is null or is pointing to some node in the linked list.*/
 public class CopyListWithRandomPointer {
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        Node original = initNodes();
-        Node copy = solution.copyRandomList(original);
-        System.out.println("Original list:(current node:node pointed by next pointer, node pointed by random pointer)");
-        solution.printList(original);
-        System.out.println("Copy list:(current node:node pointed by next pointer,node pointed by random pointer)");
-        solution.printList(copy);
-    }
-
-    private static Node initNodes() {
-        Node one = new Node(1);
-        Node two = new Node(2);
-        Node three = new Node(3);
-        Node four = new Node(4);
-        Node five = new Node(5);
-
-        one.next = two;
-        one.random = five;
-
-        two.next = three;
-        two.random = five;
-
-        three.next = four;
-        three.random = four;
-
-        four.next = five;
-        four.random = null;
-
-        five.next = null;
-        five.random = three;
-
-        return one;
-    }
-
-    private static Node initNodes2() {
-        Node one = new Node(3);
-        Node two = new Node(3);
-        Node three = new Node(3);
-
-        one.next = two;
-        one.random = null;
-
-        two.next = three;
-        two.random = one;
-
-        three.next = null;
-        three.random = null;
-
-        return one;
-    }
-}
-
-class Solution {
-
     HashMap<Node, Node> nodes = new HashMap<>();
-
 
     //First solution Time O(n), Space O(n)
     public Node copyRandomList(Node head) {
@@ -120,9 +66,9 @@ class Solution {
         while (firstPassCurrentElem != null) {
             int copyVal = head.val;
             Node copyMember = new Node(copyVal);
-            firstPassCurrentElem.next=copyMember;              //перемонтировать, у оригинала в поле next указать клона а
-            copyMember.next=firstPassCurrentElem.next; //у клона указать ссылку на след элемент следующего оригинала, таким робразом добавяться доп звенья
-                                             //возможно поменять местами
+            firstPassCurrentElem.next = copyMember;              //перемонтировать, у оригинала в поле next указать клона а
+            copyMember.next = firstPassCurrentElem.next; //у клона указать ссылку на след элемент следующего оригинала, таким робразом добавяться доп звенья
+            //возможно поменять местами
             firstPassCurrentElem = firstPassCurrentElem.next;
         }
 
@@ -139,10 +85,10 @@ class Solution {
         Node thirdPassCurrentElem = head;
         while (thirdPassCurrentElem != null) {
             Node clone = thirdPassCurrentElem.next;
-            thirdPassCurrentElem.next=clone.next;
-            clone.next=clone.next.next;
+            thirdPassCurrentElem.next = clone.next;
+            clone.next = clone.next.next;
 
-            thirdPassCurrentElem=thirdPassCurrentElem.next.next;
+            thirdPassCurrentElem = thirdPassCurrentElem.next.next;
         }
 
         return head.next;
@@ -162,7 +108,6 @@ class Solution {
         Node copyMember = new Node(copyVal);
         nodes.put(head, copyMember);
     }
-
 
     private void secondPass(Node head) {
         Node currentElem = head;
@@ -191,14 +136,3 @@ class Solution {
     }
 }
 
-class Node {
-    int val;
-    Node next;
-    Node random;
-
-    public Node(int val) {
-        this.val = val;
-        this.next = null;
-        this.random = null;
-    }
-}
