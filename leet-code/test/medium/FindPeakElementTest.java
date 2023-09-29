@@ -9,6 +9,7 @@ class FindPeakElementTest {
     @Test
     void findPeakElement() {
         FindPeakElement solution = new FindPeakElement();
+
         int actual = solution.findPeakElement(new int[]{1, 2, 3, 1});
         int expected = 2;
         assertEquals(expected, actual);
