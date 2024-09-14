@@ -1,4 +1,4 @@
-package training.algorithm_lecture.lecture1;
+package training.algorithm_lecture.lecture1.example;
 
 import java.util.Set;
 import java.util.stream.Collectors;

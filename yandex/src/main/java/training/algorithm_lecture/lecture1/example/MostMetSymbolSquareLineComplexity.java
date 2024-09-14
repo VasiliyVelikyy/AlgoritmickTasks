@@ -1,4 +1,4 @@
-package training.algorithm_lecture.lecture1;
+package training.algorithm_lecture.lecture1.example;
 
 //Сложность алгоритма O(N*N)
 public class MostMetSymbolSquareLineComplexity implements MostMetSymbol {

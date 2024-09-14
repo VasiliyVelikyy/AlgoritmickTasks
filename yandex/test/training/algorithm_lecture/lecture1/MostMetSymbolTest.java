@@ -2,6 +2,10 @@ package training.algorithm_lecture.lecture1;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import training.algorithm_lecture.lecture1.example.MostMetSymbol;
+import training.algorithm_lecture.lecture1.example.MostMetSymbolLineComplexity;
+import training.algorithm_lecture.lecture1.example.MostMetSymbolLogLineComplexity;
+import training.algorithm_lecture.lecture1.example.MostMetSymbolSquareLineComplexity;
 
 class MostMetSymbolTest {
 
@@ -11,7 +15,7 @@ class MostMetSymbolTest {
         char squareLineExpected = squareLineComplexity.process("a,b,a,b,a");
         Assertions.assertEquals('a', squareLineExpected);
 
-        MostMetSymbol logLineComplexity =new  MostMetSymbolLogLineComplexity();
+        MostMetSymbol logLineComplexity =new MostMetSymbolLogLineComplexity();
         char logLineExpected = logLineComplexity.process("a,b,a,b,a");
         Assertions.assertEquals('a', logLineExpected);
 
