@@ -1,4 +1,4 @@
-package yandex.introduction_contest.tasks;
+package contest.introduction_contest.tasks;
 
 import java.io.File;
 import java.io.FileWriter;
