@@ -1,4 +1,4 @@
-package yandex.introduction_contest;
+package yandex.introduction_contest.tasks;
 
 import java.util.Scanner;
 
