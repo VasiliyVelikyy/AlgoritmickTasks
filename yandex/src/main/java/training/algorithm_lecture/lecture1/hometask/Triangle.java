@@ -5,9 +5,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static training.algorithm_lecture.lecture1.hometask.YesNowAnswer.NO;
+import static training.algorithm_lecture.lecture1.hometask.YesNowAnswer.YES;
+
 public class Triangle {
-    private final static String YES = "YES";
-    private final static String NO = "NO";
 
     public static void main(String[] args) {
         Triangle triangle = new Triangle();
