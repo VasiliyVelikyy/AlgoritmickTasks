@@ -4,33 +4,35 @@ import java.util.Scanner;
 
 public class SquareEquationResolver {
     public static void main(String[] args) {
-        process();
-    }
-
-    private static void process() {
+        SquareEquationResolver resolver = new SquareEquationResolver();
         try (Scanner scanner = new Scanner(System.in)) {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
             int c = scanner.nextInt();
-            int k;
-            int x;
-            if (a == 0 && b == 0 && c == 0 || (a == 0 && b == c * c)) {
-                System.out.println("MANY SOLUTIONS");
-            } else if (c < 0) {
-                System.out.println("NO SOLUTION");
-            } else {
-                //ax+b=c*c
-                c = c * c;
-                k = c - b;
-                x = k / a;
-                if (a * x + b == c) {
-                    System.out.println(x);
-                } else {
-                    System.out.println("NO SOLUTION");
-                }
-            }
+            System.out.println(resolver.process(a, b, c));
         } catch (Exception e) {
             System.out.println("NO SOLUTION");
         }
+    }
+
+    public String process(int a, int b, int c) {
+        int k;
+        int x;
+        if (a == 0 && b == 0 && c == 0 || (a == 0 && b == c * c)) {
+            return "MANY SOLUTIONS";
+        } else if (c < 0) {
+            return "NO SOLUTION";
+        } else {
+            //ax+b=c*c
+            c = c * c;
+            k = c - b;
+            x = k / a;
+            if (a * x + b == c) {
+                return String.valueOf(x);
+            } else {
+                return "NO SOLUTION";
+            }
+        }
+
     }
 }
