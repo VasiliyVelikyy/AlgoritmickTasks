@@ -31,5 +31,46 @@ The number of nodes in each linked list is in the range [1, 100].
 0 <= Node.val <= 9
 It is guaranteed that the list represents a number that does not have leading zeros.*/
 public class AddTwoNumbers {
-//   g
+
+    //my solution
+    //Runtime 1 ms Beats 100.00%
+    //Memory 44.64 MB Beats 41.55%
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode curTop = l1;
+        ListNode curBottom = l2;
+        ListNode answer = new ListNode();
+        ListNode curAnswer = answer;
+        byte remainder = 0;
+
+        while (curTop != null || curBottom != null || remainder != 0) {
+            byte leftElem = curTop == null ? 0 : (byte) curTop.val;
+            byte rightElem = curBottom == null ? 0 : (byte) curBottom.val;
+
+            byte sumElem = (byte) (leftElem + rightElem + remainder);
+
+            if (remainder > 0) { //if used remainder,reset
+                remainder = 0;
+            }
+
+            if (sumElem >= 10) {
+                remainder++;
+                sumElem = (byte) (sumElem % 10);
+                curAnswer.val = sumElem;
+            } else {
+                curAnswer.val = sumElem;
+            }
+            curTop = curTop == null ? null : curTop.next;
+            curBottom = curBottom == null ? null : curBottom.next;
+
+            if (curTop != null || curBottom != null || remainder != 0) {
+                curAnswer.next = new ListNode();
+            } else {
+                curAnswer.next = null; //if last element set null for cursor
+            }
+
+            curAnswer = curAnswer.next;
+        }
+        return answer;
+    }
+
 }

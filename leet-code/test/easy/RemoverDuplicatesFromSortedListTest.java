@@ -4,6 +4,7 @@ import domain.ListNode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static utility.CollectorListNodeToString.getStringValFromListNode;
 
 class RemoverDuplicatesFromSortedListTest {
     RemoverDuplicatesFromSortedList solution = new RemoverDuplicatesFromSortedList();
@@ -30,14 +31,5 @@ class RemoverDuplicatesFromSortedListTest {
     }
 
 
-    private String getStringValFromListNode(ListNode answer) {
-        StringBuilder stringBuilder = new StringBuilder("[");
-        while (answer != null) {
-            stringBuilder.append(answer.val).append(",");
-            answer = answer.next;
-        }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        stringBuilder.append("]");
-        return stringBuilder.toString();
-    }
+
 }
