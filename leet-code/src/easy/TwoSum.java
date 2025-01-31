@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/*Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+/* 1. Two Sum
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
@@ -39,6 +40,15 @@ Only one valid answer exists.
 
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?*/
 public class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+
+    }
+
+
+
+
+
+
     //Solution 1:(Brute Force)
 //    public int[] twoSum(int[] nums, int target) {
 //        for (int i = 0; i < nums.length; i++) {
@@ -72,14 +82,14 @@ public class TwoSum {
 //    }
 
     //Solution 3: (One-pass Hash Table)
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> numMap = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int missingNum = target - nums[i];
-            if (numMap.containsKey(missingNum)) {
-                return new int[]{numMap.get(missingNum), i};
-            } else numMap.put(nums[i], i);
-        }
-        return new int[]{};
-    }
+//    public int[] twoSum(int[] nums, int target) {
+//        Map<Integer, Integer> numMap = new HashMap<>();
+//        for (int i = 0; i < nums.length; i++) {
+//            int missingNum = target - nums[i];
+//            if (numMap.containsKey(missingNum)) {
+//                return new int[]{numMap.get(missingNum), i};
+//            } else numMap.put(nums[i], i);
+//        }
+//        return new int[]{};
+//    }
 }
