@@ -1,35 +1,52 @@
 package easy;
 
-import easy.ValidParentheses;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ValidParenthesesTest {
+    ValidParentheses solution = new ValidParentheses();
 
     @Test
     void isValid() {
-        ValidParentheses solution = new ValidParentheses();
         boolean expected = true;
         boolean actual = solution.isValid("()");
         assertEquals(expected, actual);
-
-        expected = true;
-        actual = solution.isValid("()[]{}");
-        assertEquals(expected, actual);
-
-        expected = false;
-        actual = solution.isValid("(]");
-        assertEquals(expected, actual);
-
-        expected = true;
-        actual = solution.isValid("{[]}");
-        assertEquals(expected, actual);
-
-        expected = false;
-        actual = solution.isValid("]");
-        assertEquals(expected, actual);
-
-
     }
+
+    @Test
+    void isValid2() {
+        boolean expected = true;
+        boolean actual = solution.isValid("()[]{}");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isValid3() {
+        boolean expected = false;
+        boolean actual = solution.isValid("(]");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isValid4() {
+        boolean expected = true;
+        boolean actual = solution.isValid("{[]}");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isValid5() {
+        boolean expected = false;
+        boolean actual = solution.isValid("]");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isValid6() {
+        boolean expected = false;
+        boolean actual = solution.isValid("[");
+        assertEquals(expected, actual);
+    }
+
 }
