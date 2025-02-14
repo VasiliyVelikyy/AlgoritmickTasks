@@ -33,47 +33,69 @@ public class Clock {
     String splitter = ":";
     char question = '?';
 
+
+    //Runtime 0 ms Beats 100.00%
+    // Memory 41.90 MB Beats 41.03%
     public String maximumTime(String time) {
-        String[] strings = time.split(splitter);
-        String hour = strings[0];
-        String minutes = strings[1];
-
-        minutes = fixMinutes(minutes);
-        hour = fixHour(hour);
-
-        return hour + splitter + minutes;
-    }
-
-
-    private String fixMinutes(String minutes) {
-        return (minutes.charAt(1) == question) ?
-                minutes.replace(question, nine) : minutes.replace(question, five);
-    }
-
-    private String fixHour(String hour) {
-        return (hour.charAt(0) == question) ? fixSingleValue(hour) : fixStringDecimal(hour);
-    }
-
-    private String fixStringDecimal(String hour) {
-        if (hour.charAt(0) == '1') {
-            return hour.replace(question, nine);
-        } else if (hour.charAt(0) == '2') {
-            return hour.replace(question, three);
-        } else {
-            return hour.replace(question, nine);
+        char[] chars = time.toCharArray();
+        if (chars[0] == question) {
+            chars[0] = chars[1] >= '4' && chars[1] <= '9' ? '1' : '2';
         }
+        if (chars[1] == question) {
+            chars[1] = chars[0] == '2' ? '3' : '9';
+        }
+
+        if (chars[3] == question) {
+            chars[3] = '5';
+        }
+        if (chars[4] == question) {
+            chars[4] = '9';
+        }
+        return new String(chars);
     }
 
-    private String fixSingleValue(String hour) {
-        int num = hour.charAt(1);
-        if (num < '9' && num > '3') {
-            return hour.replace(question, '1');
-        } else if (num >= '1') {
-            return hour.replace(question, '2');
-        } else {
-            return hour.replace(question, '0');
-        }
-    }
+    //my solution in interview
+//    public String maximumTime(String time) {
+//        String[] strings = time.split(splitter);
+//        String hour = strings[0];
+//        String minutes = strings[1];
+//
+//        minutes = fixMinutes(minutes);
+//        hour = fixHour(hour);
+//
+//        return hour + splitter + minutes;
+//    }
+//
+//
+//    private String fixMinutes(String minutes) {
+//        return (minutes.charAt(1) == question) ?
+//                minutes.replace(question, nine) : minutes.replace(question, five);
+//    }
+//
+//    private String fixHour(String hour) {
+//        return (hour.charAt(0) == question) ? fixSingleValue(hour) : fixStringDecimal(hour);
+//    }
+//
+//    private String fixStringDecimal(String hour) {
+//        if (hour.charAt(0) == '1') {
+//            return hour.replace(question, nine);
+//        } else if (hour.charAt(0) == '2') {
+//            return hour.replace(question, three);
+//        } else {
+//            return hour.replace(question, nine);
+//        }
+//    }
+//
+//    private String fixSingleValue(String hour) {
+//        int num = hour.charAt(1);
+//        if (num < '9' && num > '3') {
+//            return hour.replace(question, '1');
+//        } else if (num >= '1') {
+//            return hour.replace(question, '2');
+//        } else {
+//            return hour.replace(question, '0');
+//        }
+//    }
 }
 
 
