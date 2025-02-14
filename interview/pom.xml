@@ -12,9 +12,12 @@
 
     <artifactId>interview</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
 
+    <packaging>jar</packaging>
+
+    <dependencies>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>

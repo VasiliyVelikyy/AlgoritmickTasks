@@ -13,10 +13,17 @@
     <groupId>org.example</groupId>
     <artifactId>AlgoritmickTasks</artifactId>
     <version>${algoritmick-task.project.version}</version>
+
+    <modules>
+        <module>interview</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
     <properties>
     <algoritmick-task.project.version>1.0-SNAPSHOT</algoritmick-task.project.version>
-
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
