@@ -1,4 +1,4 @@
-package easy;
+package easy.linked_list;
 
 import domain.ListNode;
 

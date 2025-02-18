@@ -1,7 +1,6 @@
-package easy;
+package easy.linked_list;
 
 import domain.ListNode;
-import easy.MergeTwoSortedLists;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ class MergeTwoSortedListsTest {
         assertEquals(expectedElemsList, actualElemsList);
 
         actual = solution.mergeTwoLists(null, null);
-        assertEquals(null, actual);
+        assertNull(actual);
 
         actual = solution.mergeTwoLists(new ListNode(2), new ListNode(1));
         actualElemsList = collectNodeValues(actual);
@@ -54,15 +53,13 @@ class MergeTwoSortedListsTest {
 
     private static ListNode initFirstNode() {
         ListNode one = new ListNode(1);
-        ListNode six = new ListNode(6);
-        one.next = six;
+        one.next = new ListNode(6);
         return one;
     }
 
     private static ListNode initSecondNode() {
         ListNode four = new ListNode(4);
-        ListNode five = new ListNode(5);
-        four.next = five;
+        four.next = new ListNode(5);
         return four;
     }
 
@@ -86,15 +83,13 @@ class MergeTwoSortedListsTest {
 
     private static ListNode initFirstNodeThree() {
         ListNode one = new ListNode(-9);
-        ListNode two = new ListNode(3);
-        one.next = two;
+        one.next = new ListNode(3);
         return one;
     }
 
     private static ListNode initSecondNodeThree() {
         ListNode one = new ListNode(5);
-        ListNode two = new ListNode(7);
-        one.next = two;
+        one.next = new ListNode(7);
         return one;
     }
 
