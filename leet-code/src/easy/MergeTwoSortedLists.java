@@ -34,6 +34,37 @@ Both list1 and list2 are sorted in non-decreasing order.*/
 
 public class MergeTwoSortedLists {
 
+    //My second solution
+    //Runtime 0 ms Beats 100.00%
+    //Memory 42.42 MB Beats 73.84%
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode cursor1 = list1;
+        ListNode cursor2 = list2;
+        ListNode answer = new ListNode(0);
+        ListNode cursor3 = answer;
+        while (cursor1 != null && cursor2 != null) {
+
+            if (cursor1.val >= cursor2.val) {
+                cursor3.next = cursor2;
+                cursor3 = cursor3.next;
+                cursor2 = cursor2.next;
+            } else {
+                cursor3.next = cursor1;
+                cursor3 = cursor3.next;
+                cursor1 = cursor1.next;
+            }
+        }
+        if (cursor1 != null) {
+            cursor3.next = cursor1;
+        }
+        if (cursor2 != null) {
+            cursor3.next = cursor2;
+        }
+
+        return answer.next;
+    }
+
+
     //my Solution
     //Runtime 0ms Beats 100.00%of users with Java
     //Memory 41.33MB Beats 50.76%of users with Java
@@ -88,30 +119,30 @@ public class MergeTwoSortedLists {
 
     //Runtime 0ms Beats 100.00%of users with Java
     //Memory 41.16MB Beats 75.78%of users with Java
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode res = new ListNode();
-        ListNode current = res;
-        while(list1 != null && list2 != null) {
-            if(list1.val < list2.val) {
-                current.next = list1;
-                current= current.next;
-                list1 = list1.next;
-            } else {
-                current.next = list2;
-                current = current.next;
-                list2 = list2.next;
-            }
-        }
-        while(list1 != null) {
-            current.next = list1;
-            current = current.next;
-            list1 = list1.next;
-        }
-        while(list2 != null) {
-            current.next = list2;
-            current = current.next;
-            list2 = list2.next;
-        }
-        return res.next;
-    }
+//    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+//        ListNode res = new ListNode();
+//        ListNode current = res;
+//        while(list1 != null && list2 != null) {
+//            if(list1.val < list2.val) {
+//                current.next = list1;
+//                current= current.next;
+//                list1 = list1.next;
+//            } else {
+//                current.next = list2;
+//                current = current.next;
+//                list2 = list2.next;
+//            }
+//        }
+//        while(list1 != null) {
+//            current.next = list1;
+//            current = current.next;
+//            list1 = list1.next;
+//        }
+//        while(list2 != null) {
+//            current.next = list2;
+//            current = current.next;
+//            list2 = list2.next;
+//        }
+//        return res.next;
+//    }
 }
