@@ -1,46 +1,44 @@
 package easy.binary_tree;
 
 import domain.TreeNode;
+import easy.utils.TreeNodeUtils;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class InverterBinaryTreeTest {
     private final InverterBinaryTree inverterBinaryTree = new InverterBinaryTree();
 
     @Test
-    void invertTree() {
-        inverterBinaryTree.invertTree(generateThreeNode(new int[]{4, 2, 7, 1, 3, 6, 9}));
+    void invertTree1() {
+        var expectedValue = new Integer[]{4, 7, 2, 9, 6, 3, 1};
+        var actualNode = inverterBinaryTree.invertTree(TreeNodeUtils.fromIntArray(new Integer[]{4, 2, 7, 1, 3, 6, 9}));
+        Integer[] actualValue = TreeNodeUtils.fromTreeNode(actualNode);
+        assertArrayEquals(expectedValue, actualValue);
     }
 
-    private TreeNode generateThreeNode(int[] ints) {
-
-        if (ints.length == 0) {
-            return null;
-        }
-
-        TreeNode root = new TreeNode(ints[0]);
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        int idx = 1;
-
-        while (!queue.isEmpty() && idx < ints.length) {
-            TreeNode node = queue.poll();
-
-            if (idx < ints.length) {
-                node.left = new TreeNode(ints[idx]);
-                queue.add(node.left);
-            }
-            idx++;
-
-            if (idx < ints.length ) {
-                node.right = new TreeNode(ints[idx]);
-                queue.add(node.right);
-            }
-            idx++;
-        }
-
-        return root;
+    @Test
+    void invertTree2() {
+        var expectedValue = new Integer[]{2, 3, 1};
+        var actualNode = inverterBinaryTree.invertTree(TreeNodeUtils.fromIntArray(new Integer[]{2, 1, 3}));
+        Integer[] actualValue = TreeNodeUtils.fromTreeNode(actualNode);
+        assertArrayEquals(expectedValue, actualValue);
     }
+
+    @Test
+    void invertTree3() {
+        var expectedValue = new Integer[]{};
+        var actualNode = inverterBinaryTree.invertTree(new TreeNode());
+        Integer[] actualValue = TreeNodeUtils.fromTreeNode(actualNode);
+        assertArrayEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    void invertTree4() {
+        var expectedValue = new Integer[]{1, 2};
+        var actualNode = inverterBinaryTree.invertTree(TreeNodeUtils.fromIntArray(expectedValue));
+        Integer[] actualValue = TreeNodeUtils.fromTreeNode(actualNode);
+        assertArrayEquals(expectedValue, actualValue);
+    }
+
 }
