@@ -4,8 +4,15 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+//https://thecode.media/path-js/
+//https://thecode.media/path-rec/
 public class ShortestPath {
-    //когда мы знаем структуру массива
+    private List<List<Integer>> results = new ArrayList<>();
+    // номер самого короткого маршрута
+    int minCounter;
+
+
+    //когда мы знаем структуру массива bruteForceWhenKnownStructure
     public int bruteForceWhenKnownStructure(int[][] values) {
         int minPath = Integer.MAX_VALUE;
         int countPath = 0;
@@ -22,7 +29,7 @@ public class ShortestPath {
                                     (j != k) && (j != l) && (j != m) &&
                                     (k != l) && (k != m) &&
                                     (l != m)) {
-                                paths.add((i+1) + "->" + (j+1) + "->" + (k+1) + "->" + (l+1) + "->" + (m+1));  //какой путь
+                                paths.add((i + 1) + "->" + (j + 1) + "->" + (k + 1) + "->" + (l + 1) + "->" + (m + 1));  //какой путь
                                 System.out.print(paths.get(countPath));
 
                                 int currentValPath = values[i][j] + values[j][k] + values[k][l] + values[l][m];
@@ -42,4 +49,6 @@ public class ShortestPath {
 
         return minPath;
     }
+
+
 }
