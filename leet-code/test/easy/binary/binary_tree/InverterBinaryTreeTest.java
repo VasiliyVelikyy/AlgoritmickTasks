@@ -1,4 +1,4 @@
-package easy.binary_tree;
+package easy.binary.binary_tree;
 
 import domain.TreeNode;
 import easy.utils.TreeNodeUtils;
