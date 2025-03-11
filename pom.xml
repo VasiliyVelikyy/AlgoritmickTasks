@@ -16,6 +16,7 @@
 
     <modules>
         <module>interview</module>
+        <module>leet-code</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -31,8 +32,8 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.2</version>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
