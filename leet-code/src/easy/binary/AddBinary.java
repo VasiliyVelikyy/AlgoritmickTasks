@@ -1,4 +1,4 @@
-package easy;
+package easy.binary;
 
 //67. Add Binary
 /*Given two binary strings a and b, return their sum as a binary string.
@@ -77,6 +77,7 @@ public class AddBinary {
         int carry = 0;
         while (i >= 0 || j >= 0) {
             int sum = carry;
+
             /// Теперь мы вычитаем «0», чтобы преобразовать числа из типа char в int, чтобы мы могли выполнять операции с числами
             if (i >= 0) sum += a.charAt(i--) - '0';
             if (j >= 0) sum += b.charAt(j--) - '0';

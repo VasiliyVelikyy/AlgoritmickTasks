@@ -32,8 +32,7 @@ public class ValidAnagram {
 
     //other solution
     //hash table approach
-    //Runtime
-    //14 ms Beats 29.64%
+    //Runtime 14 ms Beats 29.64%
     //Memory 45.06 MB Beats 11.84%
 //    public boolean isAnagram(String s, String t) {
 //        if (s.length() != t.length()) return false;
