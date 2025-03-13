@@ -2,9 +2,6 @@ package easy.linked_list;
 
 import domain.ListNode;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /*
 
 141. Linked List Cycle
@@ -53,17 +50,36 @@ public class LinkedListCycle {
     //Runtime 0 ms Beats 100.00%
     //Memory 44.27 MB Beats 88.37%
     public boolean hasCycle(ListNode head) {
-        if(head==null) return false;
+        if (head == null) return false;
         ListNode walker = head;
         ListNode runner = head;
-        while(runner.next!=null && runner.next.next!=null) {
+        while (runner.next != null && runner.next.next != null) {
             walker = walker.next;
             runner = runner.next.next;
-            if(walker==runner) return true;
+            if (walker == runner) return true;
         }
         return false;
     }
 
+    //other solution
+    //Runtime 6 ms Beats 9.14%
+    //Memory 45.15 MB Beats 7.23%
+//    public boolean hasCycle(ListNode head) {
+//        if (head == null) {
+//            return false;
+//        }
+//        HashMap<ListNode, Boolean> visited = new HashMap<>();
+//        ListNode temp = head;
+//
+//        while (temp != null) {
+//            if (visited.getOrDefault(temp, false)) {
+//                return true;
+//            }
+//            visited.put(temp, true);
+//            temp = temp.next;
+//        }
+//        return false;
+//    }
 
     //my solution
     //Runtime 6 ms Beats 9.18%
