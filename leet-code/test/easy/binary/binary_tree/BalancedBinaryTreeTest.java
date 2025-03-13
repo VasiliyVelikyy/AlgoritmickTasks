@@ -2,7 +2,7 @@ package easy.binary.binary_tree;
 
 import org.junit.jupiter.api.Test;
 
-import static easy.utils.TreeNodeUtils.fromIntArrayWithNullValue;
+import static easy.utils.TreeNodeCollectors.fromIntArrayWithNullValue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
