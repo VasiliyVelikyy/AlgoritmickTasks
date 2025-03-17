@@ -48,6 +48,8 @@ All the calls to pop and peek are valid.
 Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.*/
 
 
+import java.util.Stack;
+
 /**
  * Your MyQueue object will be instantiated and called as such:
  * MyQueue obj = new MyQueue();
@@ -57,24 +59,41 @@ Follow-up: Can you implement the queue such that each operation is amortized O(1
  * boolean param_4 = obj.empty();
  */
 
+//my solution
+//Runtime 0 ms Beats 100.00%
+//Memory 41.21 MB Beats 83.31%
 public class ImplementQueueUsingStacks {
-    public ImplementQueueUsingStacks() {
+    private final Stack<Integer> stackFirst;
+    private final Stack<Integer> stackSecond;
 
+    public ImplementQueueUsingStacks() {
+        stackFirst = new Stack<>();
+        stackSecond = new Stack<>();
     }
 
     public void push(int x) {
-
+        if (stackFirst.isEmpty() && stackSecond.isEmpty()) {
+            stackFirst.push(x);
+        } else {
+            while (!stackFirst.isEmpty()) {
+                stackSecond.push(stackFirst.pop());
+            }
+            stackSecond.push(x);
+            while (!stackSecond.isEmpty()) {
+                stackFirst.push(stackSecond.pop());
+            }
+        }
     }
 
     public int pop() {
-return 0;
+        return stackFirst.isEmpty() ? 0 : stackFirst.pop();
     }
 
     public int peek() {
-return 0;
+        return stackFirst.isEmpty() ? 0 : stackFirst.peek();
     }
 
     public boolean empty() {
-return false;
+        return stackFirst.isEmpty();
     }
 }

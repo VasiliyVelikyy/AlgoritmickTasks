@@ -1,14 +1,14 @@
 package easy.stack;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class ImplementQueueUsingMap {
-
+public class ImplementStackUsingMap {
     private final Map<Integer, Integer> map = new HashMap<>();
     int index = -1;
 
-    public ImplementQueueUsingMap() {
+    public ImplementStackUsingMap() {
 
     }
 
