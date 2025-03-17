@@ -59,7 +59,7 @@ import java.util.Stack;
  * boolean param_4 = obj.empty();
  */
 
-//my solution
+//My solution
 //Runtime 0 ms Beats 100.00%
 //Memory 41.21 MB Beats 83.31%
 public class ImplementQueueUsingStacks {
