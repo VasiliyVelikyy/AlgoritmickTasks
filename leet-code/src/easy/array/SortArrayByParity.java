@@ -1,8 +1,4 @@
-package easy;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.stream.Stream;
+package easy.array;
 
 //905. Sort Array By Parity
 /*Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.

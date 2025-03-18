@@ -1,6 +1,5 @@
-package easy;
+package easy.array;
 
-import easy.array.MonotonicArray;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

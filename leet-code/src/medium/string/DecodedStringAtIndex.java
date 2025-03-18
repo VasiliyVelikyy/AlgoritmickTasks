@@ -1,8 +1,4 @@
-package medium;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+package medium.string;
 
 //880. Decoded String at Index
 /*You are given an encoded string s. To decode the string to a tape, the encoded string is read one character at a time and the following steps are taken:

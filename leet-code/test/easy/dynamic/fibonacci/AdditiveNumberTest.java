@@ -1,3 +1,5 @@
+package easy.dynamic.fibonacci;
+
 import medium.fibonacci.AdditiveNumber;
 import org.junit.jupiter.api.Test;
 

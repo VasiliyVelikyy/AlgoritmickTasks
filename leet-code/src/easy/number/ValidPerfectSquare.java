@@ -1,4 +1,4 @@
-package easy;
+package easy.number;
 
 //367. Valid Perfect Square
 /*Given a positive integer num, return true if num is a perfect square or false otherwise.

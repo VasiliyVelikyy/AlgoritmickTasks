@@ -1,8 +1,8 @@
-package easy;
+package easy.string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WordPrefixCheckerTest {
     WordPrefixChecker solution = new WordPrefixChecker();

@@ -1,7 +1,6 @@
-package easy;
+package easy.array;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 //2164. Sort Even and Odd Indices Independently
@@ -44,7 +43,7 @@ public class SortEvenAndOddIndicesIndependently {
     //Runtime 3ms  70.10%of users with Java
     //Memory 44.14MB Beats 6.64%of users with Java
     public int[] sortEvenOdd(int[] nums) {
-        PriorityQueue<Integer> even = new PriorityQueue<>((a, b)->(a - b));
+        PriorityQueue<Integer> even = new PriorityQueue<>(Comparator.comparingInt(a -> a));
         PriorityQueue<Integer> odd = new PriorityQueue<>((a, b)->(b - a));
         int length = nums.length;
         for (int i = 0; i < length; ++i) {
