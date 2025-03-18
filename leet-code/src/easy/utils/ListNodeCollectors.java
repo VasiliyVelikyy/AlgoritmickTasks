@@ -1,6 +1,6 @@
 package easy.utils;
 
-import domain.ListNode;
+import common.domain.ListNode;
 
 public class ListNodeCollectors {
 

@@ -1,9 +1,7 @@
 package medium;
 
-import domain.Node;
+import common.domain.Node;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CopyListWithRandomPointerTest {
 

@@ -1,6 +1,6 @@
 package easy.binary.binary_tree;
 
-import domain.TreeNode;
+import common.domain.TreeNode;
 
 import java.util.LinkedList;
 

@@ -1,6 +1,6 @@
 package easy.linked_list;
 
-import domain.ListNode;
+import common.domain.ListNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

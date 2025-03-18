@@ -1,6 +1,6 @@
 package utility;
 
-import domain.ListNode;
+import common.domain.ListNode;
 
 public class CollectorListNodeToString {
     public static String getStringValFromListNode(ListNode answer) {

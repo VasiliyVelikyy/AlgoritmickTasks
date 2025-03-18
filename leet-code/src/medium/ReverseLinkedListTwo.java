@@ -1,6 +1,6 @@
 package medium;
 
-import domain.ListNode;
+import common.domain.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,18 +39,15 @@ The number of nodes in the list is n.
  * будет всего один проход)
  * После завершения итераций необходимо conection соеденить с концом отрезка(тоесть с prevNode) , он будет иметь отметку 7 а current будет null тк 7 узел ссылается на пустоту
  * Так же необходимо хвост соеденить с последющим от 7узла элементом, так как current ссылается на пустоту, это и будет нашим элементом
- *
  * left=4 right=7
  * 1->2->3->4->5->6->7
  *       ^
  *       connection
  *             ^
  *             current ->сдвиагется к right
- *
  *           ^
  *           previous-> cдвигается за current
  *           ^ tail зафиксировано
- *
  *   после итераций поменять ссылки
  * */
 public class ReverseLinkedListTwo {

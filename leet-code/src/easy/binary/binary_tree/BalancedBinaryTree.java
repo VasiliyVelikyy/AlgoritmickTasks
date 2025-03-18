@@ -1,6 +1,6 @@
 package easy.binary.binary_tree;
 
-import domain.TreeNode;
+import common.domain.TreeNode;
 
 /*110. Balanced Binary Tree
 Easy

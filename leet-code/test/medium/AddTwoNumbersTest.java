@@ -1,6 +1,6 @@
 package medium;
 
-import domain.ListNode;
+import common.domain.ListNode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

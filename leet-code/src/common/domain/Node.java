@@ -1,4 +1,4 @@
-package domain;
+package common.domain;
 
 public class Node {
     public int val;

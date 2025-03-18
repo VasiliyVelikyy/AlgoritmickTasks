@@ -1,7 +1,6 @@
 package medium;
 
-import domain.ListNode;
-import medium.SplitLinkedListinParts;
+import common.domain.ListNode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,6 +1,6 @@
 package medium;
 
-import domain.ListNode;
+import common.domain.ListNode;
 
 /*Given the head of a singly linked list and an integer k, split the linked list into k consecutive linked list parts.
 

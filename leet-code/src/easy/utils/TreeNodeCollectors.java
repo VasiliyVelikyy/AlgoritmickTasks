@@ -1,6 +1,6 @@
 package easy.utils;
 
-import domain.TreeNode;
+import common.domain.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

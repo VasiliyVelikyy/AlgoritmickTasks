@@ -1,6 +1,6 @@
 package medium;
 
-import domain.Node;
+import common.domain.Node;
 
 import java.util.HashMap;
 

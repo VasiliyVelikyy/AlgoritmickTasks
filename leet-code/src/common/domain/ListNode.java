@@ -1,4 +1,4 @@
-package domain;
+package common.domain;
 
 public class ListNode {
     public int val;
