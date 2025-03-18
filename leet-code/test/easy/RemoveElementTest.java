@@ -1,8 +1,9 @@
 package easy;
 
-import easy.RemoveElement;
-import org.junit.jupiter.api.Assertions;
+import easy.array.RemoveElement;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
@@ -52,16 +53,20 @@ Constraints:
 0 <= val <= 100*/
 class RemoveElementTest {
 
+    RemoveElement removeElement = new RemoveElement();
+
     @Test
     void removeElement() {
-        RemoveElement removeElement=new RemoveElement();
-        int actual= removeElement.removeElement(new int[]{ 3,2,2,3},3);
-        int expected =2;
-        Assertions.assertEquals(expected,actual);
 
-         actual= removeElement.removeElement(new int[]{ 0,1,2,2,3,0,4,2}, 2);
-         expected =5;
-        Assertions.assertEquals(expected,actual);
+        int actual = removeElement.removeElement(new int[]{3, 2, 2, 3}, 3);
+        int expected = 2;
+        assertEquals(expected, actual);
+    }
 
+    @Test
+    void removeElement2() {
+        int actual = removeElement.removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2);
+        int expected = 5;
+        assertEquals(expected, actual);
     }
 }
