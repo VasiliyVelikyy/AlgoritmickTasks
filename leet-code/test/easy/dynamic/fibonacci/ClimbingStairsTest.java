@@ -41,7 +41,14 @@ class ClimbingStairsTest {
     @Test
     void climbStairs5() {
         int actual = solution.climbStairs(4);
-        int expected = 13;
+        int expected = 5;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void climbStairs6() {
+        int actual = solution.climbStairs(45);
+        int expected = 1836311903;
         assertEquals(expected, actual);
     }
 

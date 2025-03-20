@@ -34,13 +34,57 @@ public class ClimbingStairs {
     //Runtime 0ms Beats 100.00%of users with Java
     //Memory 39.08MB Beats 62.10%of users with Java
     //fibonacci algorithm
+//    public int climbStairs(int end) {
+//        int[] dp = new int[end + 1];
+//        dp[0] = 1;
+//        dp[1] = 1;
+//        for (int i = 2; i <= end; i++) {
+//            dp[i] = dp[i - 1] + dp[i - 2];
+//        }
+//        return dp[end];
+//    }
+
+    //recursion
+    //this solution in leetcode Time Limit Exceeded
+//    public int climbStairs(int end) {
+//        if (end == 1 || end == 0) {
+//            return 1;
+//        }
+//        int notlast=climbStairs(end - 1);
+//        int last=climbStairs(end - 2);
+//        int answ = notlast + last;
+//        return answ;
+//    }
+
+    //memoisation
+    //Runtime 0 ms Beats 100.00%
+    //Memory 41.16 MB Beats 5.27%
+//    public int climbStairs(int end) {
+//        Map<Integer, Integer> map = new HashMap<>();
+//        return recursMemo(end, map);
+//    }
+//
+//    private int recursMemo(int end, Map<Integer, Integer> map) {
+//        if (end == 1 || end == 0) {
+//            return 1;
+//        }
+//        if (!map.containsKey(end)) {
+//            map.put(end, recursMemo(end - 1, map) + recursMemo(end - 2, map));
+//        }
+//        return map.get(end);
+//    }
+
+    //other solution
+    //optimisation space
+    //Runtime 0 ms Beats 100.00%
+    //Memory 40.22 MB Beats 81.60%
     public int climbStairs(int end) {
-        int[] dp = new int[end + 1];
-        dp[0] = 1;
-        dp[1] = 1;
+        int prev = 1, curr = 1;
         for (int i = 2; i <= end; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
+            int temp = curr;
+            curr = prev + curr;
+            prev = temp;
         }
-        return dp[end];
+        return curr;
     }
 }
