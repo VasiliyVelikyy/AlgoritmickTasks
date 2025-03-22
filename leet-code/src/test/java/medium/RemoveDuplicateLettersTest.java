@@ -1,21 +1,24 @@
 package medium;
 
-import medium.RemoveDuplicateLetters;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RemoveDuplicateLettersTest {
 
+    RemoveDuplicateLetters solution = new RemoveDuplicateLetters();
+
     @Test
     void removeDuplicateLetters() {
-        RemoveDuplicateLetters solution = new RemoveDuplicateLetters();
         String actual = solution.removeDuplicateLetters("bcabc");
         String expected = "abc";
         assertEquals(expected, actual);
+    }
 
-        actual = solution.removeDuplicateLetters("cbacdcbc");
-        expected = "acdb";
+    @Test
+    void removeDuplicateLetters2() {
+        String actual = solution.removeDuplicateLetters("cbacdcbc");
+        String expected = "acdb";
         assertEquals(expected, actual);
     }
 }
