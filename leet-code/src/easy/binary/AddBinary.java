@@ -22,9 +22,33 @@ a and b consist only of '0' or '1' characters.
 Each string does not contain leading zeros except for the zero itself.*/
 public class AddBinary {
 
+    //Other solution
+    //Runtime 1 ms Beats 99.64%
+    //Memory 42.14 MB Beats 81.55%
+    public String addBinary(String a, String b) {
+        StringBuilder sb = new StringBuilder();
+        int remainder = 0;
+        int indexA = a.length() - 1;
+        int indexB = b.length() - 1;
+
+        while (indexA >= 0 || indexB >= 0 || remainder == 1) {
+            if (indexA >= 0) {
+                remainder += a.charAt(indexA--) - '0';
+            }
+            if (indexB >= 0) {
+                remainder += b.charAt(indexB--) - '0';
+            }
+            sb.append(remainder % 2);
+            remainder /= 2;
+        }
+        return sb.reverse().toString();
+
+    }
+
+
     //my Solution
-    //Runtime 3 мс Обгоняет 29,56% пользователей с Java
-    //Memory  44.96MB Beats 5.77%of users with Java
+    //Runtime 3 мс Beats 29,56%
+    //Memory 44.96MB Beats 5.77%
 //    public String addBinary(String a, String b) {
 //        int maxLenght = a.length() > b.length() ? a.length() : b.length();
 //
@@ -68,31 +92,31 @@ public class AddBinary {
 //
 //        return sb;
 //    }
-//Время выполнения 1 мс Превосходит 100,00% пользователей с Java
-    //Память 41,25 МБ Обгоняет 58,94% пользователей с Java
-    public String addBinary(String a, String b) {
-        StringBuilder res = new StringBuilder();
-        int i = a.length() - 1; // we crete i pointer for string a and we have to start adding from right to left
-        int j = b.length() - 1; // similar pointer j for string b
-        int carry = 0;
-        while (i >= 0 || j >= 0) {
-            int sum = carry;
-
-            /// Теперь мы вычитаем «0», чтобы преобразовать числа из типа char в int, чтобы мы могли выполнять операции с числами
-            if (i >= 0) sum += a.charAt(i--) - '0';
-            if (j >= 0) sum += b.charAt(j--) - '0';
-
-            carry = sum > 1 ? 1 : 0;
-            //получение переноса зависит от частного, которое мы получим при делении суммы / 2, которое будет нашим переносом. Керри может быть либо 1, либо 0.
-            // если сумма равна 0, res равна 1, и тогда перенос будет равен 0;
-            //            // если сумма равна 1, разрешение равно 1, а перенос будет равен 0
-            //            // если сумма равна 2, разрешение равно 0, а перенос будет равен 1
-            //            // если сумма равна 3, разрешение равно 1, а перенос будет равен 1
-            res.append(sum % 2);
-            // просто модулируем сумму, чтобы мы могли получить остаток и добавить его в наш результат
-        }
-        if (carry != 0) res.append(carry); // мы будем добавлять его в res, пока значение переноса не станет равным 0
-        return res.reverse().toString();
-    }
+    //Runtime 1 мс Beats 100,00%
+    //Memory 41,25 МБ Beats 58,94%
+//    public String addBinary(String a, String b) {
+//        StringBuilder res = new StringBuilder();
+//        int i = a.length() - 1; // we crete i pointer for string a and we have to start adding from right to left
+//        int j = b.length() - 1; // similar pointer j for string b
+//        int carry = 0;
+//        while (i >= 0 || j >= 0) {
+//            int sum = carry;
+//
+//            /// Теперь мы вычитаем «0», чтобы преобразовать числа из типа char в int, чтобы мы могли выполнять операции с числами
+//            if (i >= 0) sum += a.charAt(i--) - '0';
+//            if (j >= 0) sum += b.charAt(j--) - '0';
+//
+//            carry = sum > 1 ? 1 : 0;
+//            //получение переноса зависит от частного, которое мы получим при делении суммы / 2, которое будет нашим переносом. Керри может быть либо 1, либо 0.
+//            // если сумма равна 0, res равна 1, и тогда перенос будет равен 0;
+//            //            // если сумма равна 1, разрешение равно 1, а перенос будет равен 0
+//            //            // если сумма равна 2, разрешение равно 0, а перенос будет равен 1
+//            //            // если сумма равна 3, разрешение равно 1, а перенос будет равен 1
+//            res.append(sum % 2);
+//            // просто модулируем сумму, чтобы мы могли получить остаток и добавить его в наш результат
+//        }
+//        if (carry != 0) res.append(carry); // мы будем добавлять его в res, пока значение переноса не станет равным 0
+//        return res.reverse().toString();
+//    }
 }
 
