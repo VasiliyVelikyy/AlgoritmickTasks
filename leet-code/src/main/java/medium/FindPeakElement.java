@@ -1,7 +1,5 @@
 package medium;
 
-import java.util.Arrays;
-
 //162. Find Peak Element
 /*
 Companies

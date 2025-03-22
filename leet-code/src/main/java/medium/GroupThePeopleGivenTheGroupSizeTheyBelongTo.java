@@ -1,9 +1,7 @@
 package medium;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 //1282. Group the People Given the Group Size They Belong To
 /*There are n people that are split into some unknown number of groups. Each person is labeled with a unique ID from 0 to n - 1.

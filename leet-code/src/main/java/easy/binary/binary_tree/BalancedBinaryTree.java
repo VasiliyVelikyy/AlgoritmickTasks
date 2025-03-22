@@ -39,8 +39,7 @@ public class BalancedBinaryTree {
         // If the tree is empty, we can say it’s balanced...
         if (root == null)  return true;
         // Height Function will return -1, when it’s an unbalanced tree...
-        if (height(root) == -1)  return false;
-        return true;
+        return height(root) != -1;
     }
     // Create a function to return the “height” of a current subtree using recursion...
     private int height(TreeNode root) {

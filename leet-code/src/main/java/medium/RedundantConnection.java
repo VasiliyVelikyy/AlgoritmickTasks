@@ -58,14 +58,6 @@ public class RedundantConnection {
 
             }
         }
-//        Map<Integer,Integer>sortedMap=new TreeMap<>(new Comparator<Integer>() {
-//            @Override
-//            public int compare(Integer o1, Integer o2) {
-//                return 0;
-//            }
-//        })
-
-
-        return null;
+return null;
     }
 }

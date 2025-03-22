@@ -1,7 +1,5 @@
 package medium;
 
-import java.util.ArrayList;
-import java.util.List;
 
 //53. Maximum Subarray
 /*Given an integer array nums, find the
