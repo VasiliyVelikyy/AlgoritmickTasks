@@ -34,6 +34,9 @@ The number of nodes in the tree is in the range [1, 104].
 -100 <= Node.val <= 100*/
 public class DiameterOfBinaryTree {
 
+    //other solution
+    //Runtime 6 ms Beats 12.69%
+    // Memory 44.47 MB Beats 92.04%
     public int diameterOfBinaryTree(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         Map<TreeNode, Integer> deepMap = new HashMap<>();
