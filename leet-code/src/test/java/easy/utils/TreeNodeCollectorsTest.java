@@ -1,6 +1,7 @@
 package easy.utils;
 
 import org.junit.jupiter.api.Test;
+import utils.TreeNodeCollectors;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

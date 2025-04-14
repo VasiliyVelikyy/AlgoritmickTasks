@@ -2,8 +2,8 @@ package easy.linked_list;
 
 import org.junit.jupiter.api.Test;
 
-import static easy.utils.ListNodeCollectors.arrayFromListNode;
-import static easy.utils.ListNodeCollectors.listNodeFromArray;
+import static utils.ListNodeCollectors.arrayFromListNode;
+import static utils.ListNodeCollectors.listNodeFromArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class ReverseLinkedListTest {

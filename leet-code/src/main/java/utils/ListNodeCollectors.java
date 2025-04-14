@@ -1,4 +1,4 @@
-package easy.utils;
+package utils;
 
 import common.domain.ListNode;
 

@@ -22,6 +22,7 @@ a and b consist only of '0' or '1' characters.
 Each string does not contain leading zeros except for the zero itself.*/
 public class AddBinary {
 
+
     //Other solution
     //Runtime 1 ms Beats 99.64%
     //Memory 42.14 MB Beats 81.55%

@@ -3,8 +3,8 @@ package easy.linked_list;
 import common.domain.ListNode;
 import org.junit.jupiter.api.Test;
 
-import static easy.utils.ListNodeCollectors.fromArrayWithCycleByPosition;
-import static easy.utils.ListNodeCollectors.listNodeFromArray;
+import static utils.ListNodeCollectors.fromArrayWithCycleByPosition;
+import static utils.ListNodeCollectors.listNodeFromArray;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
