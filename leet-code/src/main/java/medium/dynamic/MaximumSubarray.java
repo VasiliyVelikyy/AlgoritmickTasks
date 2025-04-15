@@ -1,4 +1,4 @@
-package medium;
+package medium.dynamic;
 
 
 //53. Maximum Subarray
@@ -32,6 +32,7 @@ Constraints:
 
 Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.*/
 public class MaximumSubarray {
+
     //главная идея в том что как только текущая сумма уходит в отрицательное значение, макс суммой становиться любое положительное число
     //other solution
     //Runtime 1ms Beats 100.00%of users with Java

@@ -1,4 +1,4 @@
-package medium;
+package medium.dynamic;
 
 import org.junit.jupiter.api.Test;
 
