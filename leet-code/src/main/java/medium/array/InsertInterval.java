@@ -1,6 +1,7 @@
 package medium.array;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 * 57. Insert Interval
@@ -38,36 +39,64 @@ newInterval.length == 2
 public class InsertInterval {
 
     //other solution
+    //I change your code a little bit to beat 100% people in online judgement, coz you don't have to allocate memory each time when
+    // you find an overlap. It means you can have start and end variable to keep track of thoses 2 varaible
+    //Runtime 1 ms Beats 98.95%
+    //Memory 44.63 MB Beats 95.74%
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> result = new ArrayList<>();
+        int inx = 0, len = intervals.length;
+        int start = newInterval[0];
+        int end = newInterval[1];
+        while (inx < len && intervals[inx][1] < start) {
+            result.add(intervals[inx++]);
+        }
+
+        while (inx < len && intervals[inx][0] <= end) {
+            start = Math.min(start, intervals[inx][0]);
+            end = Math.max(end, intervals[inx][1]);
+            inx++;
+        }
+        result.add(new int[]{start, end});
+
+        while (inx < len) {
+            result.add(intervals[inx++]);
+        }
+        return result.toArray(new int[result.size()][]);
+    }
+
+
+    //other solution
     //Runtime 2 ms Beats 37.15%
     //Memory 45.28 MB Beats 15.28%
-    public int[][] insert(int[][] intervals, int[] newInterval) {
-        LinkedList<int[]> list = new LinkedList<>();
-        int index = 0, intervalsSize = intervals.length;
-
-        //add all intervals that are non-overlapping to the newInterval. Comparing end of old interval and begin of new interval
-        //check left side
-        while (index < intervalsSize && intervals[index][1] < newInterval[0]) {
-            list.add(intervals[index++]);
-        }
-
-
-        //merge newOnterval with the overlapping intervals
-        //check right side
-        while (index < intervalsSize && intervals[index][0] <= newInterval[1]) {
-            newInterval[0] = Math.min(intervals[index][0], newInterval[0]);
-            newInterval[1] = Math.max(intervals[index][1], newInterval[1]);
-            index++;
-        }
-
-        list.add(newInterval);
-
-        //add the remaining intervals onto the list
-        //add other
-        while (index < intervalsSize) {
-            list.add(intervals[index++]);
-        }
-
-        return list.toArray(new int[list.size()][2]);
-    }
+//    public int[][] insert(int[][] intervals, int[] newInterval) {
+//        LinkedList<int[]> list = new LinkedList<>();
+//        int index = 0, intervalsSize = intervals.length;
+//
+//        //add all intervals that are non-overlapping to the newInterval. Comparing end of old interval and begin of new interval
+//        //check left side
+//        while (index < intervalsSize && intervals[index][1] < newInterval[0]) {
+//            list.add(intervals[index++]);
+//        }
+//
+//
+//        //merge newOnterval with the overlapping intervals
+//        //check right side
+//        while (index < intervalsSize && intervals[index][0] <= newInterval[1]) {
+//            newInterval[0] = Math.min(intervals[index][0], newInterval[0]);
+//            newInterval[1] = Math.max(intervals[index][1], newInterval[1]);
+//            index++;
+//        }
+//
+//        list.add(newInterval);
+//
+//        //add the remaining intervals onto the list
+//        //add other
+//        while (index < intervalsSize) {
+//            list.add(intervals[index++]);
+//        }
+//
+//        return list.toArray(new int[list.size()][2]);
+//    }
 
 }
