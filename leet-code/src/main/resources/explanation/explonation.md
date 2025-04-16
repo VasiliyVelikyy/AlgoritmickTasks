@@ -7,6 +7,8 @@ https://github.com/VasiliyVelikyy/AlgoritmickTasks/blob/master/leet-code/src/eas
 
 > <https://leetcode.com/problems/01-matrix/description/>
 
+> <https://github.com/VasiliyVelikyy/AlgoritmickTasks/blob/master/leet-code/src/main/java/medium/matrix/MatrixEval.java/>
+
 Решение 1: BFS сначала на нулевых ячейках
 
 Для удобства назовем ячейку со значением 0 нулевой ячейкой , ячейку со значением 1 — одноячейкой , расстояние до

@@ -41,31 +41,31 @@ public class MatrixEval {
     //other solution
     //Runtime 7 ms Beats 97.79%
     //Memory /48.07 MB Beats 17.56%
-    public int[][] updateMatrix(int[][] mat) {
-        int[][] distance = new int[mat.length][mat[0].length];
-        int maxPossibleDistance = mat.length - 1 + mat[0].length - 1;
-
-        for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < mat[0].length; j++) {
-                if (mat[i][j] != 0) {
-                    int upCell = (i > 0) ? distance[i - 1][j] : maxPossibleDistance;
-                    int leftCell = (j > 0) ? distance[i][j - 1] : maxPossibleDistance;
-                    distance[i][j] = Math.min(upCell, leftCell) + 1;
-                }
-            }
-
-        }
-
-        for (int i = mat.length - 1; i >= 0; i--) {
-            for (int j = mat[0].length - 1; j >= 0; j--) {
-                if (mat[i][j] != 0) {
-                    int downCell = (i < mat.length - 1) ? distance[i + 1][j] : maxPossibleDistance;
-                    int rightCell = (j < mat[0].length - 1) ? distance[i][j + 1] : maxPossibleDistance;
-                    distance[i][j] = Math.min(Math.min(downCell, rightCell) + 1, distance[i][j]);
-                }
-            }
-
-        }
-        return distance;
-    }
+//    public int[][] updateMatrix(int[][] mat) {
+//        int[][] distance = new int[mat.length][mat[0].length];
+//        int maxPossibleDistance = mat.length - 1 + mat[0].length - 1;
+//
+//        for (int i = 0; i < mat.length; i++) {
+//            for (int j = 0; j < mat[0].length; j++) {
+//                if (mat[i][j] != 0) {
+//                    int upCell = (i > 0) ? distance[i - 1][j] : maxPossibleDistance;
+//                    int leftCell = (j > 0) ? distance[i][j - 1] : maxPossibleDistance;
+//                    distance[i][j] = Math.min(upCell, leftCell) + 1;
+//                }
+//            }
+//
+//        }
+//
+//        for (int i = mat.length - 1; i >= 0; i--) {
+//            for (int j = mat[0].length - 1; j >= 0; j--) {
+//                if (mat[i][j] != 0) {
+//                    int downCell = (i < mat.length - 1) ? distance[i + 1][j] : maxPossibleDistance;
+//                    int rightCell = (j < mat[0].length - 1) ? distance[i][j + 1] : maxPossibleDistance;
+//                    distance[i][j] = Math.min(Math.min(downCell, rightCell) + 1, distance[i][j]);
+//                }
+//            }
+//
+//        }
+//        return distance;
+//    }
 }
