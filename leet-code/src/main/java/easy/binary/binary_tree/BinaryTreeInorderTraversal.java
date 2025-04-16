@@ -4,6 +4,7 @@ import common.domain.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /*
 * 94. Binary Tree Inorder Traversal
@@ -54,21 +55,43 @@ The number of nodes in the tree is in the range [0, 100].
 -100 <= Node.val <= 100*/
 public class BinaryTreeInorderTraversal {
 
-    //other solution
-    //Runtime 0 ms Beats 100.00%
-    //Memory 41.86 MB Beats 27.81%
+
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        recurs(result, root);
+        Stack<TreeNode> stack = new Stack<>();
+        if (root == null) return result;
+
+        TreeNode  cur=root;
+        while (true) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            if(stack.isEmpty()) break;
+
+            cur = stack.pop();
+            result.add(cur.val);
+            cur = cur.right;
+        }
         return result;
     }
 
-    private void recurs(List<Integer> result, TreeNode root) {
-        if (root == null) return;
-        else {
-            recurs(result, root.left);
-            result.add(root.val);
-            recurs(result, root.right);
-        }
-    }
+
+    //other solution
+    //Runtime 0 ms Beats 100.00%
+    //Memory 41.86 MB Beats 27.81%
+//    public List<Integer> inorderTraversal(TreeNode root) {
+//        List<Integer> result = new LinkedList<>();
+//        recurs(result, root);
+//        return result;
+//    }
+//
+//    private void recurs(List<Integer> result, TreeNode root) {
+//        if (root == null) return;
+//        else {
+//            recurs(result, root.left);
+//            result.add(root.val);
+//            recurs(result, root.right);
+//        }
+//    }
 }

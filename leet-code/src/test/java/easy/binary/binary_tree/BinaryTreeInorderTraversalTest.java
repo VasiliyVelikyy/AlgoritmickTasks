@@ -23,4 +23,5 @@ class BinaryTreeInorderTraversalTest {
         var actual = solution.inorderTraversal(fromIntArrayWithNullValue(new Integer[]{1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9}));
         assertIterableEquals(expected, actual);
     }
+
 }
