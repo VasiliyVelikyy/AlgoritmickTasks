@@ -56,18 +56,21 @@ The number of nodes in the tree is in the range [0, 100].
 public class BinaryTreeInorderTraversal {
 
 
+    //other solution
+    //Runtime 0 ms Beats 100.00%
+    //Memory 42.00 MB Beats 16.03%
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         if (root == null) return result;
 
-        TreeNode  cur=root;
+        TreeNode cur = root;
         while (true) {
             while (cur != null) {
                 stack.push(cur);
                 cur = cur.left;
             }
-            if(stack.isEmpty()) break;
+            if (stack.isEmpty()) break;
 
             cur = stack.pop();
             result.add(cur.val);
