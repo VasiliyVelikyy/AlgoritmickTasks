@@ -1,7 +1,5 @@
 package easy.array;
 
-import java.util.Arrays;
-
 /*
 * 88. Merge Sorted Array
 Easy
@@ -52,13 +50,31 @@ public class MergeSortedArray {
     //my solution
     //Runtime 1 ms Beats 29.29%
     //Memory 42.28 MB Beats 60.85%
+//    public void merge(int[] nums1, int m, int[] nums2, int n) {
+//        if (nums2 == null || nums2.length == 0) return;
+//        int indx = 0;
+//        for (int i = m; i < nums1.length; i++) {
+//            nums1[i] = nums2[indx++];
+//        }
+//        Arrays.sort(nums1);
+//    }
+
+
+    //other solution
+    //Runtime 0 ms Beats 100.00%
+    //Memory 42.11 MB Beats 78.06%
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        if (nums2 == null || nums2.length == 0) return;
-        int indx = 0;
-        for (int i = m; i < nums1.length; i++) {
-            nums1[i] = nums2[indx++];
+        int pointerLeft = m - 1;
+        int pointerRight = n - 1;
+        int indexNum1 = nums1.length - 1;
+
+        while (pointerRight >= 0) {
+            if (pointerLeft >= 0 && nums1[pointerLeft] > nums2[pointerRight]) {
+                nums1[indexNum1--] = nums1[pointerLeft--];
+            } else {
+                nums1[indexNum1--] = nums2[pointerRight--];
+            }
         }
-        Arrays.sort(nums1);
     }
 
 }
