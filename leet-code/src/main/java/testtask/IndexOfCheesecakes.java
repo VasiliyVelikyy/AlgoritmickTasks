@@ -1,5 +1,8 @@
 package testtask;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /*Индекс сырков
@@ -54,36 +57,42 @@ i
 0*/
 public class IndexOfCheesecakes {
     public static void main(String[] args) {
-        IndexOfCheesecakes solution = new IndexOfCheesecakes();
-        int[] mass = solution.enterVal();
-        int answer = solution.evaluate(mass);
-    }
-
-    private int evaluate(int[] mass) {
-
-        int initialPrice=mass[0];
-        int count = 0;
-        for (int i = 1; i < mass.length; i++) {
-            if(mass[i]<initialPrice){
-                initialPrice=mass[i];
-            }
-            else {
-                count++;
-            }
-        }
-
-        return count+1;
-    }
-
-    private int[] enterVal() {
         Scanner scanner = new Scanner(System.in);
+
+
         int n = scanner.nextInt();
-        int[] a = new int[n];
+
+
+        int[] count = new int[201];
+        long totalPairs = 0;
+
         for (int i = 0; i < n; i++) {
-            a[i] = scanner.nextInt();
+            int price = scanner.nextInt();
+
+            for (int j = 1; j < price; j++) {
+                totalPairs += count[j];
+            }
+
+            count[price]++;
         }
+
+        System.out.println(totalPairs);
 
         scanner.close();
-        return a;
     }
+
+
+    // не подходит так как долго выполняется
+//    public int evaluate(int[] mass) {
+//        int count = 0;
+//        for (int i = 0; i < mass.length; i++) {
+//            for (int j = i + 1; j < mass.length; j++) {
+//                if (mass[i] < mass[j]) {
+//                    count++;
+//                }
+//            }
+//        }
+//        return count;
+//    }
+//
 }
