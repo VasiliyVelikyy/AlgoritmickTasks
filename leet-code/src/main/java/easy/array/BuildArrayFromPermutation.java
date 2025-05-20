@@ -45,4 +45,29 @@ public class BuildArrayFromPermutation {
         }
         return ans;
     }
+//    public int[] buildArray(List<Integer> nums) {
+//        int q = nums.size();
+//
+//        // turn the array into a=qb+r
+//        for (int i = 0; i < nums.size(); i++) {
+//            int r = nums.get(i);
+//
+//            // retrieve correct value from potentially already processed element
+//            // i.e. get r from something maybe already in the form a = qb + r
+//            // if it isn't already processed (doesn't have qb yet), that's ok b/c
+//            // r < q, so r % q will return the same value
+//            int b = nums.get(nums.get(i)) % q;
+//
+//            // put it all together
+//            nums.set(i, q * b + r);
+//        }
+//
+//        // extract just the final b values
+//        for (int i = 0; i < nums.size(); i++) {
+//            nums.set(i, nums.get(i) / q);
+//        }
+//
+//        return nums;
+//    }
+
 }
