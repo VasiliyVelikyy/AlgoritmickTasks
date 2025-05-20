@@ -42,4 +42,10 @@ class FindTheIndexOIfTheFirstOccurrenceInAStringTest {
         var answer = solution.strStr("mississippi", "pi");
         assertEquals(9, answer);
     }
+
+    @Test
+    void strStr7() {
+        var answer = solution.strStr("a", "a");
+        assertEquals(0, answer);
+    }
 }
