@@ -46,10 +46,9 @@ public class MaximumDepthOfBinaryTree {
     //my solution
     //Runtime 7 ms Beats 0.75%
     //Memory 43.02 MB Beats 17.38%
-//    public int maxDepth(TreeNode root) {
+//    public int maxDepth(TreeNode root) {//     if (root == null) return 0;
 //        Stack<TreeNode> stack = new Stack<>();
 //        Map<TreeNode, Integer> map = new HashMap<>();
-//        if (root == null) return 0;
 //
 //        stack.push(root);
 //        int maxDepth = 0;
