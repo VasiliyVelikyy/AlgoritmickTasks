@@ -2,6 +2,10 @@ package easy.linked_list;
 
 import common.domain.ListNode;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 /*
 * 160. Intersection of Two Linked Lists
 Easy
@@ -59,11 +63,69 @@ intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.
 
 Follow up: Could you write a solution that runs in O(m + n) time and use only O(1) memory?*/
 public class IntersectionOfTwoLinkedLists {
+    //Other solution
+    //Runtime
+    // 10 ms Beats 9.18%
+    // Memory 48.13 MB Beats 86.10%
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        HashMap<ListNode, Integer> m = new HashMap<>();
+        while (headA != null) {
+            m.put(headA, m.getOrDefault(headA, 0) + 1);
+            headA = headA.next;
+        }
+        while (headB != null) {
+            if (m.getOrDefault(headB, 0) > 0) {
+                return headB;
+            }
+            headB = headB.next;
+        }
+        return null;
+    }
+
+    //Other solution
+    //Runtime
+    // 1 ms Beats 99.87%
+    // Memory 49.26 MB Beats 9.37%
+    // public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    //     //boundary check
+    //     if(headA == null || headB == null) return null;
+    //
+    //     ListNode a = headA;
+    //     ListNode b = headB;
+    //
+    //     //if a & b have different len, then we will stop the loop after second iteration
+    //     while( a != b){
+    //         //for the end of first iteration, we just reset the pointer to the head of another linkedlist
+    //         a = a == null? headB : a.next;
+    //         b = b == null? headA : b.next;
+    //     }
+    //
+    //     return a;
+    // }
+
+    //My solution
+    //Runtime 6 ms Beats 21.84%
+    // Memory 48.42 MB Beats 76.41%
+    // public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    //     ListNode pointA = headA;
+    //     ListNode pointB = headB;
+    //     Set<ListNode> setA = new HashSet<>();
+    //     while (pointA != null) {
+    //         setA.add(pointA);
+    //         pointA = pointA.next;
+    //     }
+    //     while (pointB != null) {
+    //         if (setA.contains(pointB)) {
+    //             return pointB;
+    //         }
+    //         pointB = pointB.next;
+    //     }
+    //     return null;
+    // }
+
     //My solution
     //Runtime 590 ms Beats 5.16%
     // Memory 48.36 MB Beats 80.94%
-
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {}
     // public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
     //     ListNode pointA = headA;
     //     ListNode pointB = headB;
