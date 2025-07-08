@@ -1,6 +1,9 @@
 package easy.array;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 * 219. Contains Duplicate II
 Easy
@@ -29,15 +32,36 @@ Constraints:
 -109 <= nums[i] <= 109
 0 <= k <= 105*/
 public class ContainsDuplicate2 {
-    //My solution bad brute force
+    //Other solution
+    //Runtime 20 ms Beats 90.82%
+    //Memory 60.68 MB Beats 13.86%
     public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] == nums[j] && Math.abs(i - j) <= k) {
+            if (!map.containsKey(nums[i])) {
+                map.put(nums[i], i);
+            } else {
+                var oldIndex = map.get(nums[i]);
+                if (Math.abs(oldIndex - i) <= k) {
                     return true;
+                } else {
+                    map.put(nums[i], i);
                 }
             }
         }
         return false;
     }
+
+    //My bad solution (brute force)
+//    public boolean containsNearbyDuplicate(int[] nums, int k) {
+//        for (int i = 0; i < nums.length; i++) {
+//            for (int j = i + 1; j < nums.length; j++) {
+//                if (nums[i] == nums[j] && Math.abs(i - j) <= k) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
 }
