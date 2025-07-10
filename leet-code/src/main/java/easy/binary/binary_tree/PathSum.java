@@ -51,9 +51,17 @@ public class PathSum {
 
         Stack<TreeNode> queue = new Stack<>();
         queue.add(root);
-        while (!queue.isEmpty() ) {
+        while (!queue.isEmpty()) {
             TreeNode node = queue.pop();
-            tempSum -= node.val;
+
+            if (tempSum < 0) {
+                if (node.val < 0) {
+                    tempSum += node.val; // прибавляем отрицательное значение
+                } else {
+                    tempSum -= node.val; // вычитаем положительное значение
+                }
+            }
+
             if (node.right != null) {
                 queue.add(node.right);
             }
@@ -63,7 +71,13 @@ public class PathSum {
 
             if (node.left == null && node.right == null) {
                 if (tempSum != 0) {
-                    tempSum += node.val;
+                    if (tempSum < 0) {
+                        if (node.val < 0) {
+                            tempSum -= node.val;
+                        } else {
+                            tempSum += node.val;
+                        }
+                    }
                 } else {
                     return true;
                 }
@@ -71,4 +85,18 @@ public class PathSum {
         }
         return false;
     }
+
+
+    //Other Solution
+    //Runtime 0 ms Beats 100.00%
+    //Memory 43.07 MB Beats 77.43%
+//    public boolean hasPathSum(TreeNode root, int sum) {
+//        if (root == null) return false;
+//        sum -= root.val;
+//        if (root.left == null && root.right == null)
+//            return sum == 0;
+//        return
+//                hasPathSum(root.left, sum) || //
+//                        hasPathSum(root.right, sum);
+//    }
 }
