@@ -45,42 +45,33 @@ The number of nodes in the tree is in the range [0, 5000].
 -1000 <= targetSum <= 1000
 * */
 public class PathSum {
+
+    //Other solution
+    //Runtime 2 ms Beats 5.91%
+    //Memory 43.45 MB Beats 25.86%
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) return false;
-        var tempSum = targetSum;
 
-        Stack<TreeNode> queue = new Stack<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.pop();
+        Stack<TreeNode> nodeStack = new Stack<>();
+        Stack<Integer> sumStack = new Stack<>();
+        nodeStack.push(root);
+        sumStack.push(targetSum - root.val);
 
-            if (tempSum < 0) {
-                if (node.val < 0) {
-                    tempSum += node.val; // прибавляем отрицательное значение
-                } else {
-                    tempSum -= node.val; // вычитаем положительное значение
-                }
+        while (!nodeStack.isEmpty()) {
+            TreeNode node = nodeStack.pop();
+            int currentSum = sumStack.pop();
+
+            if (node.left == null && node.right == null && currentSum == 0) {
+                return true;
             }
 
             if (node.right != null) {
-                queue.add(node.right);
+                nodeStack.push(node.right);
+                sumStack.push(currentSum - node.right.val);
             }
             if (node.left != null) {
-                queue.add(node.left);
-            }
-
-            if (node.left == null && node.right == null) {
-                if (tempSum != 0) {
-                    if (tempSum < 0) {
-                        if (node.val < 0) {
-                            tempSum -= node.val;
-                        } else {
-                            tempSum += node.val;
-                        }
-                    }
-                } else {
-                    return true;
-                }
+                nodeStack.push(node.left);
+                sumStack.push(currentSum - node.left.val);
             }
         }
         return false;

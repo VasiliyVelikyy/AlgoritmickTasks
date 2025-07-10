@@ -35,4 +35,11 @@ class PathSumTest {
         var actual = solution.hasPathSum(treeNodes, 3);
         assertFalse(actual);
     }
+
+    @Test
+    void hasPathSum5() {
+        var treeNodes = fromIntArrayWithNullValue(new Integer[]{-2,null,-3});
+        var actual = solution.hasPathSum(treeNodes, -5);
+        assertTrue(actual);
+    }
 }
