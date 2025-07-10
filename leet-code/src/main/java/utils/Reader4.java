@@ -17,8 +17,8 @@ public class Reader4 {
     public int reader4(char[] buf) {
         if (isFirstCall) {
             Character[] objectArray = IntStream.range(0, buf.length)
-                                               .mapToObj(i -> buf[i])
-                                               .toArray(Character[]::new);
+                    .mapToObj(i -> buf[i])
+                    .toArray(Character[]::new);
             list = splitArrayIntoChunks(objectArray, readerSize);
             isFirstCall = false;
         }
