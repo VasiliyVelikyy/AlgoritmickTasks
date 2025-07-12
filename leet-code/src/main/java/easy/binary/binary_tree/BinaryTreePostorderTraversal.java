@@ -3,6 +3,7 @@ package easy.binary.binary_tree;
 import common.domain.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -58,24 +59,24 @@ The number of the nodes in the tree is in the range [0, 100].
 
 Follow up: Recursive solution is trivial, could you do it iteratively?*/
 public class BinaryTreePostorderTraversal {
+    //Other solution
+    //Runtime 0 ms Beats 100.00%
+    //Memory 41.89 MB Beats 28.15%
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        if (root == null) return result;
         Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.peek();
-
-            if (node.right != null) {
-                stack.push(node.right);
-            }
-            if (node.left != null) {
-                stack.push(node.left);
-            } else if (node.left == null && node.right == null) {
-                stack.pop();
-                result.add(node.val);
+        TreeNode currentNode = root;
+        while (currentNode != null || !stack.isEmpty()) {
+            if (currentNode != null) {
+                result.add(currentNode.val);
+                stack.push(currentNode);
+                currentNode = currentNode.right;
+            } else {
+                currentNode = stack.pop();
+                currentNode = currentNode.left;
             }
         }
+        Collections.reverse(result);
         return result;
     }
 
