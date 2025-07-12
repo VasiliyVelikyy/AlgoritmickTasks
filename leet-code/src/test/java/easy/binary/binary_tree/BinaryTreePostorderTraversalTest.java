@@ -35,4 +35,11 @@ class BinaryTreePostorderTraversalTest {
         var result = solution.postorderTraversal(nodes);
         assertArrayEquals(new Integer[]{1}, result.toArray());
     }
+
+    @Test
+    void postorderTraversa5() {
+        var nodes = fromIntArrayWithNullValue(new Integer[]{1,-2,3,1,3,-2,null,-1});
+        var result = solution.postorderTraversal(nodes);
+        assertArrayEquals(new Integer[]{-1,1,3,-2,-2,3,1}, result.toArray());
+    }
 }
