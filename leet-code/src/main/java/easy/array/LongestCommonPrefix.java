@@ -27,35 +27,70 @@ Constraints:
 strs[i] consists of only lowercase English letters.*/
 public class LongestCommonPrefix {
 
-    //my solution
-    //Runtime 3ms Beats 24.40%of users with Java
-    //Memory 42.81MB Beats 6.14%of users with Java
-//    public String longestCommonPrefix(String[] strs) {
-//        if (strs.length == 1) return strs[0];
-//        else if (strs.length == 0) return "";
-//        else {
-//            int countSubstr = 0;
-//            String currentStr = strs[0];
-//
-//            for (int j = 1; j <= currentStr.length(); j++) {
-//                String subTarget = currentStr.substring(0, j);
-//                for (int i = 1; i < strs.length; i++) {
-//                    String destStr = strs[i];
-//                    if (destStr.length() >= j) {
-//                        String subDest = destStr.substring(0, j);
-//                        if (!subTarget.equals(subDest)) {
-//                            if (countSubstr == 0) return "";
-//                            else return currentStr.substring(0, countSubstr);
-//                        }
-//                    }
-//                    else return currentStr.substring(0, countSubstr);
-//                }
-//
-//                countSubstr++;
-//            }
-//            return currentStr;
-//        }
-//    }
+    //    my solution
+    //    Runtime 1 ms Beats 62.66%
+    //    Memory 43.14 MB Beats 67.51%
+/*
+      public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) {
+            return "";
+        }
+        if (strs.length == 1) {
+            return strs[0];
+        }
+
+        StringBuilder result = new StringBuilder();
+        int charIndex = 0;
+
+        for (int j = 0; j < strs[0].length(); j++) {
+            char comparisonChar = strs[0].charAt(j);
+            for (int i = 0; i < strs.length; i++) {
+                String currentStr = strs[i];
+                if (currentStr.length() - 1 >= charIndex
+                        && comparisonChar == currentStr.charAt(charIndex)) {
+                    if (i == strs.length - 1) {
+                        result.append(comparisonChar);
+                    }
+                } else {
+                    return result.toString();
+                }
+            }
+            charIndex++;
+        }
+        return result.toString();
+    }
+*/
+
+    //    my solution
+    //    Runtime 3ms Beats 24.40%of users with Java
+    //    Memory 42.81MB Beats 6.14%of users with Java
+/*
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 1) return strs[0];
+        else if (strs.length == 0) return "";
+        else {
+            int countSubstr = 0;
+            String currentStr = strs[0];
+
+            for (int j = 1; j <= currentStr.length(); j++) {
+                String subTarget = currentStr.substring(0, j);
+                for (int i = 1; i < strs.length; i++) {
+                    String destStr = strs[i];
+                    if (destStr.length() >= j) {
+                        String subDest = destStr.substring(0, j);
+                        if (!subTarget.equals(subDest)) {
+                            if (countSubstr == 0) return "";
+                            else return currentStr.substring(0, countSubstr);
+                        }
+                    }
+                    else return currentStr.substring(0, countSubstr);
+                }
+
+                countSubstr++;
+            }
+            return currentStr;
+        }
+    }*/
 
     //other solution
     //Runtime 1ms Beats 82.84%of users with

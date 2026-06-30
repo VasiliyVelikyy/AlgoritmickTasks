@@ -78,7 +78,7 @@ n == startTime.length == endTime.length
 endTime[i] <= startTime[i + 1] where i lies in the range [0, n - 2].
 * */
 public class RescheduleMeetingsForMaximumFreeTime2 {
-    public int maxFreeTime(int eventTime, int[] startTime, int[] endTime) {
-
-    }
+//    public int maxFreeTime(int eventTime, int[] startTime, int[] endTime) {
+//
+//    }
 }
