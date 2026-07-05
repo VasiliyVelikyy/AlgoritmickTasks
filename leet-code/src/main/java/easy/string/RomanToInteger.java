@@ -2,7 +2,9 @@ package easy.string;
 
 import java.util.HashMap;
 import java.util.Map;
-/*Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+/*
+13. Roman to Integer
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value
 I             1
@@ -47,6 +49,38 @@ s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999].*/
 public class RomanToInteger {
 
+
+    //My Solution
+    //Runtime 4 ms Beats 55.92%
+    //Memory 46.11 MB Beats 93.57%
+    /*private static final Map<Character, Short> SYMBOL_VALUES = Map.of(
+            'I', (short) 1,
+            'V', (short) 5,
+            'X', (short) 10,
+            'L', (short) 50,
+            'C', (short) 100,
+            'D', (short) 500,
+            'M', (short) 1000
+    );
+    public int romanToInt(String s) {
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            var curr = SYMBOL_VALUES.get(s.charAt(i));
+            if (i < s.length() - 1) {
+                var next = SYMBOL_VALUES.get(s.charAt(i + 1));
+                if (next > curr) {
+                    curr = (short) -curr;
+                    result += curr + next;
+                    i++;
+                } else {
+                    result += curr;
+                }
+            } else {
+                result += curr;
+            }
+        }
+        return result;
+    }*/
     public int romanToInt(String s) {
         Map<Character, Integer> vocabulary = initDirectoryRoman();
         int sum = 0;
